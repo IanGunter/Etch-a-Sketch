@@ -109,7 +109,7 @@ Public Class EtchASketchForm
 
 
         'Skake Picture Box
-        For i = 1 To 200
+        For i = 1 To 100
             DrawBox.Left = DrawBox.Left + 5
             BackgroundPictureBox.Left = BackgroundPictureBox.Left + 5
 
@@ -232,4 +232,6 @@ Public Class EtchASketchForm
     Private Sub AboutToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AboutToolStripMenuItem.Click
         MsgBox("Etch-A-Sketch " & vbNewLine & "      Press the buttons to do what they say!")
     End Sub
+
+
 End Class
