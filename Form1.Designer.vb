@@ -40,6 +40,7 @@ Partial Class EtchASketchForm
         Me.HelpToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AboutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.BackgroundPictureBox = New System.Windows.Forms.PictureBox()
+        Me.Label1 = New System.Windows.Forms.Label()
         CType(Me.DrawBox, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.BackgroundPictureBox, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -96,7 +97,7 @@ Partial Class EtchASketchForm
         Me.ExitButton.Name = "ExitButton"
         Me.ExitButton.Size = New System.Drawing.Size(123, 46)
         Me.ExitButton.TabIndex = 4
-        Me.ExitButton.Text = "Exit"
+        Me.ExitButton.Text = " Exit"
         Me.ToolTip1.SetToolTip(Me.ExitButton, "Close the program.")
         Me.ExitButton.UseVisualStyleBackColor = False
         '
@@ -157,7 +158,7 @@ Partial Class EtchASketchForm
         'AboutToolStripMenuItem
         '
         Me.AboutToolStripMenuItem.Name = "AboutToolStripMenuItem"
-        Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(107, 22)
         Me.AboutToolStripMenuItem.Text = "About"
         '
         'BackgroundPictureBox
@@ -170,18 +171,30 @@ Partial Class EtchASketchForm
         Me.BackgroundPictureBox.TabIndex = 6
         Me.BackgroundPictureBox.TabStop = False
         '
+        'Label1
+        '
+        Me.Label1.BackColor = System.Drawing.Color.Khaki
+        Me.Label1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Label1.Font = New System.Drawing.Font("Kozuka Mincho Pr6N R", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Location = New System.Drawing.Point(300, 17)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(219, 30)
+        Me.Label1.TabIndex = 7
+        Me.Label1.Text = "ETCH-A-SKETCH 9000"
+        '
         'EtchASketchForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.Firebrick
         Me.ClientSize = New System.Drawing.Size(800, 526)
+        Me.Controls.Add(Me.MenuStrip1)
+        Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.ExitButton)
         Me.Controls.Add(Me.DrawWaveformButton)
         Me.Controls.Add(Me.ClearButton)
         Me.Controls.Add(Me.SelectColorButton)
         Me.Controls.Add(Me.DrawBox)
-        Me.Controls.Add(Me.MenuStrip1)
         Me.Controls.Add(Me.BackgroundPictureBox)
         Me.MainMenuStrip = Me.MenuStrip1
         Me.Name = "EtchASketchForm"
@@ -212,4 +225,5 @@ Partial Class EtchASketchForm
     Friend WithEvents HelpToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents AboutToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents BackgroundPictureBox As PictureBox
+    Friend WithEvents Label1 As Label
 End Class

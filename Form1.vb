@@ -1,4 +1,15 @@
-﻿Public Class EtchASketchForm
+﻿'Ian Gunter
+'RCET 0265
+'Fall 2020
+'Etch-A-Sketch
+'https://github.com/IanGunter/Etch-a-Sketch.git
+
+Option Strict On
+Option Explicit On
+Option Compare Text
+
+
+Public Class EtchASketchForm
 
     Dim drawPen As New System.Drawing.Pen(Color.Black, 1)
     Dim erasePen As New System.Drawing.Pen(Color.FromName("Control"), 10)
@@ -8,40 +19,43 @@
 
 
 
+
     Sub Draw(x As Integer, y As Integer)
         'Performs the drawing action
         g = DrawBox.CreateGraphics
-        If LastX = Nothing Then
+        If lastX = Nothing Then
             g.DrawLine(drawPen, x, y, x, y)
 
         Else
-            g.DrawLine(drawPen, x, y, LastX, LastY)
+            g.DrawLine(drawPen, x, y, lastX, lastY)
 
 
         End If
-        LastX = x
-        LastY = y
+        lastX = x
+        lastY = y
 
 
     End Sub
 
-    Sub erasethething()
 
-        DrawBox.Image = Nothing
-
-    End Sub
 
     Sub DrawWaveforms()
-        Dim SinPen As New System.Drawing.Pen(Color.Black, 3)
-        Dim CoSinPen As New System.Drawing.Pen(Color.Red, 3)
-        Dim TangentPen As New System.Drawing.Pen(Color.Blue, 3)
+        Dim SinPen As New System.Drawing.Pen(Color.Black, 4)
+        Dim CoSinPen As New System.Drawing.Pen(Color.Red, 4)
+        Dim TangentPen As New System.Drawing.Pen(Color.Blue, 4)
+        Dim LinePen As New System.Drawing.Pen(Color.Black, 1)
         Dim x As Double
         Dim y As Double
         Dim LastX As Integer
         Dim LastY As Integer
+
         g = DrawBox.CreateGraphics
 
-        erasethething()
+        For i = 1 To 10
+            g.DrawLine(LinePen, 58 * i, 500, 58 * i, -500)
+            g.DrawLine(LinePen, 1000, 30 * i, -1000, 30 * i)
+
+        Next
 
         'Draw SinWave
         For Cycles As Double = 0 To 1000
@@ -69,16 +83,16 @@
             x = Cycles
 
             If LastX = Nothing Then
-                LastX = x
-                LastY = y
+                LastX = CInt(x)
+                LastY = CInt(y)
             ElseIf y - LastY < -50 Then
-                LastX = x
-                LastY = y
+                LastX = CInt(x)
+                LastY = CInt(y)
             End If
             g.DrawLine(TangentPen, CType(x, Single), CType(y, Single), LastX, LastY)
 
-            LastY = y
-            LastX = x
+            LastY = CInt(y)
+            LastX = CInt(x)
 
         Next
 
@@ -166,8 +180,8 @@
     End Sub
     Private Sub DrawBox_MouseMove(sender As Object, e As MouseEventArgs) Handles DrawBox.MouseUp
         'Removes Refernce point to draw if mouse is unclicked
-        LastX = 0
-        LastY = 0
+        lastX = 0
+        lastY = 0
     End Sub
 
     Private Sub ChooseColorButton_Click(sender As Object, e As EventArgs) Handles SelectColorButton.Click
@@ -192,6 +206,9 @@
     End Sub
 
     Private Sub DrawWaveformsToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles DrawWaveformsToolStripMenuItem.Click
+        If g IsNot Nothing Then
+            g.Clear(Color.FromName("Control"))
+        End If
         DrawWaveforms()
     End Sub
 
@@ -200,6 +217,9 @@
     End Sub
 
     Private Sub DrawWaveformButton_Click(sender As Object, e As EventArgs) Handles DrawWaveformButton.Click
+        If g IsNot Nothing Then
+            g.Clear(Color.FromName("Control"))
+        End If
         DrawWaveforms()
 
 
