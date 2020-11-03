@@ -17,9 +17,6 @@ Public Class EtchASketchForm
     Dim lastX As Integer
     Dim lastY As Integer
 
-
-
-
     Sub Draw(x As Integer, y As Integer)
         'Performs the drawing action
         g = DrawBox.CreateGraphics
@@ -34,10 +31,7 @@ Public Class EtchASketchForm
         lastX = x
         lastY = y
 
-
     End Sub
-
-
 
     Sub DrawWaveforms()
         Dim SinPen As New System.Drawing.Pen(Color.Black, 4)
@@ -96,17 +90,9 @@ Public Class EtchASketchForm
 
         Next
 
-
-
     End Sub
 
-
-
-
     Sub ClearPictureBox()
-
-
-
 
         'Skake Picture Box
         For i = 1 To 100
@@ -195,8 +181,6 @@ Public Class EtchASketchForm
         Me.Close()
     End Sub
 
-
-
     Private Sub ExitToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ExitToolStripMenuItem.Click
         Closeprogram()
     End Sub
@@ -222,7 +206,6 @@ Public Class EtchASketchForm
         End If
         DrawWaveforms()
 
-
     End Sub
 
     Private Sub ClearButton_Click(sender As Object, e As EventArgs) Handles ClearButton.Click
@@ -232,6 +215,5 @@ Public Class EtchASketchForm
     Private Sub AboutToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AboutToolStripMenuItem.Click
         MsgBox("Etch-A-Sketch " & vbNewLine & "      Press the buttons to do what they say!")
     End Sub
-
 
 End Class
