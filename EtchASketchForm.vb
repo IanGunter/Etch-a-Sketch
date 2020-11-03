@@ -136,7 +136,7 @@ Public Class EtchASketchForm
 
     Sub Eraser(x As Integer, y As Integer)
         g = DrawBox.CreateGraphics
-        If lastX = Nothing Then
+        If lastX = 0 Then
             g.DrawLine(erasePen, x, y, x, y)
 
         Else
