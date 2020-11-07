@@ -26,7 +26,6 @@ Public Class EtchASketchForm
         Else
             g.DrawLine(drawPen, x, y, lastX, lastY)
 
-
         End If
         lastX = x
         lastY = y
@@ -142,7 +141,6 @@ Public Class EtchASketchForm
         Else
             g.DrawLine(erasePen, x, y, lastX, lastY)
 
-
         End If
         lastX = x
         lastY = y
@@ -170,23 +168,12 @@ Public Class EtchASketchForm
         lastY = 0
     End Sub
 
-    Private Sub ChooseColorButton_Click(sender As Object, e As EventArgs) Handles SelectColorButton.Click
+    Private Sub ChooseColorButton_Click(sender As Object, e As EventArgs) Handles SelectColorButton.Click, SelectColorToolStripMenuItem.Click
         ColorChooser()
     End Sub
 
-    Private Sub ExitButton_Click(sender As Object, e As EventArgs) Handles ExitButton.Click
-        Closeprogram()
-    End Sub
-    Sub Closeprogram()
+    Sub Closeprogram() Handles ExitButton.Click, ExitToolStripMenuItem.Click
         Me.Close()
-    End Sub
-
-    Private Sub ExitToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ExitToolStripMenuItem.Click
-        Closeprogram()
-    End Sub
-
-    Private Sub SelectColorToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SelectColorToolStripMenuItem.Click
-        ColorChooser()
     End Sub
 
     Private Sub DrawWaveformsToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles DrawWaveformsToolStripMenuItem.Click
@@ -196,7 +183,7 @@ Public Class EtchASketchForm
         DrawWaveforms()
     End Sub
 
-    Private Sub ClearToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ClearToolStripMenuItem.Click
+    Private Sub ClearToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ClearToolStripMenuItem.Click, ClearButton.Click
         ClearPictureBox()
     End Sub
 
@@ -205,11 +192,6 @@ Public Class EtchASketchForm
             g.Clear(Color.FromName("Control"))
         End If
         DrawWaveforms()
-
-    End Sub
-
-    Private Sub ClearButton_Click(sender As Object, e As EventArgs) Handles ClearButton.Click
-        ClearPictureBox()
     End Sub
 
     Private Sub AboutToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AboutToolStripMenuItem.Click
